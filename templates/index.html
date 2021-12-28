@@ -1,0 +1,43 @@
+{% include "header.html" %}
+
+<div class="main">
+    <div class="container tim-container">
+        <div class="tim-title">
+            <h2>Tasks to Complete:</h2>
+        </div>
+        <div id="inputs">
+             <div class="row">
+                    <div class="col-sm-3">
+                	<div class="form-group">
+                        <form method="POST">
+        	        	    <input type="text" id='name' name="name" placeholder="Enter new tasks here" class="form-control" />
+                            <button class="btn btn-default" name="add_task_button">Add Task</button>
+                        </form>
+                    </div>
+                </div>
+              </div>
+            <!-- for loop here to search database -->
+            <div class="row">
+                <div class="col-sm-3">
+                    <form method="POST">
+                    {% for item in tasks%}
+                        {% if item.completed == 0%}
+                      <label class="checkbox" for="checkbox{{item['id']}}">
+                        <input type="checkbox" value="{{item['name']}}" id="checkbox{{item['id']}}" name="checkboxtask" data-toggle="checkbox">
+                        {{item['name']}}
+                      </label>
+                        {% endif%}
+                    {% endfor %}
+                    <button class="btn btn-default" name="completed_button">Mark Completed</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+ <div class="space-30"></div>
+</div>
+
+
+<!-- end main -->
+
+{% include "footer.html" %}

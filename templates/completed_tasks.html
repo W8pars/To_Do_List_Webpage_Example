@@ -1,0 +1,29 @@
+{% include "header.html" %}
+
+
+<div class="main">
+    <div class="container tim-container">
+
+        <div class="tim-title">
+            <h2>Completed Tasks</h2>
+        </div>
+        <!-- splitting here-->
+            <div class="row">
+                <div class="tim-typo">
+                    <ul>
+                        {% for item in tasks %}
+                                {% if item['completed'] == 1%}
+                                    <li>{{item['name']}}</li>
+                                {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        <!-- ending here-->>
+    </div>
+    <div class="space-30"></div>
+</div>
+
+<!-- end main -->
+
+{% include "footer.html" %}
